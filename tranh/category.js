@@ -28,13 +28,44 @@ function showCategory(){
 function updateCategory(id){
     $.ajax({
         type:"GET",
-        url:"http://localhost:8080/painting/"+id,
+        url:"http://localhost:8080/category/"+id,
         success(data2){
+            let form = "";
+            form +=`<form id="update-Category">
+<table>
+ <tr>
+            <td>nameCategory:</td>
+            <td><input type="text" id="nameCategory" value="${data2.name}"></td>
+        </tr>
+         <tr>
+            <td></td>
+            <td><input type="submit" value="Update" onclick="updateCate(${id})"></td>
+        </tr>
+</table>
+</form>`
+            document.getElementById("display").innerHTML=form;
 
         }
     })
 }
 
+function updateCate(a) {
+    let name = $('#nameCategory').val();
+    let newCate={name:name}
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: "PUT",
+        data: JSON.stringify(newCate),
+        url: "http://localhost:8080/category/" + a,
+        success() {
+            showCategory();
+        }
+    });
+    event.preventDefault();
+}
 // xoa category
 function deleteCategory(id){
     if(confirm("Bạn có chắc chắn muốn xóa ???")) {
