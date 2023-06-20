@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tranh</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<button onclick="createShow()" >Create Painting</button>
+<button onclick="showList()">List Painting</button>
+<form id="search-Painting">
+
+    <table>
+        <tr>
+            <td>Search by namePainting:</td>
+            <td>
+                <input type="text" id="search-name">
+            </td>
+            <td>
+                <input type="button" value="Search" onclick="searchByName()">
+            </td>
+        </tr>
+    </table>
+</form>
+</br></br>
+
+<button onclick="showCategory()">List Category</button>
+<button onclick="createCategory()">Create Category</button>
+<form id="search">
+
+    <table>
+        <tr>
+            <td>Search by category:</td>
+            <td>
+                <div id="category1"></div>
+            </td>
+            <td>
+                <input type="button" value="Search" onclick="searchByCategory()">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</br></br>
+<div id="display"></div>
+</body>
+</html>
+<script src="painting.js"></script>
+<script src="category.js"></script>
